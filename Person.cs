@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MethodForLINQ
 {
-    internal static class IEnumerableExtention <T>
+    public class Person
     {
-       
+       public int Age { get; set; }
     }
 }
