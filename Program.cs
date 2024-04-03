@@ -19,7 +19,7 @@ namespace MethodForLINQ
             {
                 personList.Add(new Person());
             }
-            foreach(var person in personList)
+            foreach (var person in personList)
                 person.Age = rnd.Next(60);
             var personsAge = personList.Top(30, person => person.Age);
             Console.WriteLine();
@@ -45,19 +45,16 @@ namespace MethodForLINQ
         }
         static IEnumerable<T> Top<T>(this IEnumerable<T> source, int count, Field<T> field)
         {
-            var test = source.Top(count).OrderByDescending(x => field(x));
-
             var needElementsCount = source.Count() * (count / 100.0);
             if (needElementsCount != (int)needElementsCount)
             {
                 needElementsCount++;
             }
-
-            var result = source.OrderByDescending(x=> field(x))
+            var result = source.OrderByDescending(x => field(x))
                  .Take((int)needElementsCount);
-            return test;
+            return result;
         }
 
-       
+
     }
 }
